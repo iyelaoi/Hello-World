@@ -46,7 +46,18 @@ public class MyCalendar extends JFrame implements ActionListener{
         this.setLocation(500, 300);
         this.setResizable(false);
         pack();
-
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                JOptionPane.showMessageDialog(null,"开发者CCST","开发者信息", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        thread.start();
     }
 
     //初始化日历
